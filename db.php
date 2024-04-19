@@ -8,14 +8,16 @@ $breakingBad =  new TvSerie('Breaking Bad','English (USA)',10,new Genre('Drama',
 $got = new TvSerie('Games of Thrones','English (USA)',10,new Genre('Fantasy','Descrizione'),8);
 $strangerThings = new TvSerie('Stranger Things','English (USA)',8,new Genre('Fantasy','Descrizione'),4);
 
-$movies=[
-    $parasite,
-    $gladiator,
-    $itaJeegRobot
-];
 
-$tvSeries=[
-    $breakingBad,
-    $got,
-    $strangerThings
+$productions=[
+    'movies'=>[
+        $parasite,
+        $gladiator,
+        $itaJeegRobot
+    ],
+    'tv-shows'=>[
+        $breakingBad,
+        $got,
+        $strangerThings
+    ]
 ];

@@ -27,35 +27,29 @@ $strangerThings->setYear(2016);
         <title>OOP-1</title>
     </head>
     <body>
-        <h3>Movies</h3>
-            <?php foreach ($movies as $key => $movie) :?>
-                <ul>
-                    <li>Title: <strong><?=$movie->title?></strong></li>
-                    <li>Language: <?=$movie->lang?></li>
-                    <li>Vote: <?=$movie->vote?></li>
-                    <li>Genre: <?=$movie->genre->name?></li>
-                    <li>Duration: <?=$movie->duration?> min</li>
-                    <li>Profits: <?=$movie->profits?> million $</li>
-                    <li>
-                        <small>Note: <?=$movie->getYear()?></small>
-                    </li>
-                </ul>
-                <hr>
-            <?php endforeach?>
 
-            <h3>TV-Shows</h3>
-            <?php foreach ($tvSeries as $key => $show) :?>
+            <?php foreach ($productions as $key => $production) :?>
+                <h3><?= ($key === 'movies') ? 'Movies': 'TV-Shows'?></h3>
                 <ul>
-                    <li>Title: <strong><?=$show->title?></strong></li>
-                    <li>Language: <?=$show->lang?></li>
-                    <li>Vote: <?=$show->vote?></li>
-                    <li>Genre: <?=$show->genre->name?></li>
-                    <li>N° of seasons: <?=$show->seasonNumb?></li>
+                <?php foreach ($production as $type => $media) :?>
+                    <li>Title: <strong><?=$media->title?></strong></li>
+                    <li>Language: <?=$media->lang?></li>
+                    <li>Vote: <?=$media->vote?></li>
+                    <li>Genre: <?=$media->genre->name?></li>
+
+                    <?php if($key === 'movies'):?>
+                        <li>Duration: <?=$media->duration?> min</li>
+                        <li>Profits: <?=$media->profits?> million $</li>
+                    <?php else :?>
+                        <li>N° of seasons: <?=$media->seasonNumb?></li>
+                    <?php endif ?>
+
                     <li>
-                        <small>Note: <?=$show->getYear()?></small>
+                        <small>Note: <?=$media->getYear()?></small>
                     </li>
+                    <hr>
+                <?php endforeach?>
                 </ul>
-                <hr>
             <?php endforeach?>
 
     </body>
