@@ -7,9 +7,9 @@ include_once __DIR__.'/models/TvSerie.php';
 
 
 include_once __DIR__.'/db.php';
-$movie=new Movie(100,120);
-//$tv=new TvSerie(5);
-var_dump($movie);
+$movie=new Movie('Matrix','en',8,new Genre('sci-fi','description'),100,120);
+$tv=new TvSerie('Taboo','en',10,new Genre('Drama','description'),1);
+var_dump($movie,$tv);
 $parasite->setYear(2019);
 $gladiator->setYear(2000);
 $itaJeegRobot->setYear(2015);
