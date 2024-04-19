@@ -7,12 +7,13 @@ include_once __DIR__.'/models/TvSerie.php';
 
 
 include_once __DIR__.'/db.php';
-$movie=new Movie('Matrix','en',8,new Genre('sci-fi','description'),100,120);
-$tv=new TvSerie('Taboo','en',10,new Genre('Drama','description'),1);
-var_dump($movie,$tv);
+
 $parasite->setYear(2019);
 $gladiator->setYear(2000);
 $itaJeegRobot->setYear(2015);
+$breakingBad->setYear(2008);
+$got->setYear(2011);
+$strangerThings->setYear(2016);
 
 //var_dump($itaJeegRobot->genre);
 
@@ -26,18 +27,36 @@ $itaJeegRobot->setYear(2015);
         <title>OOP-1</title>
     </head>
     <body>
-        
-            <?php foreach ($films as $key => $film) :?>
+        <h3>Movies</h3>
+            <?php foreach ($movies as $key => $movie) :?>
                 <ul>
-                    <li>Title: <strong><?=$film->title?></strong></li>
-                    <li>Language: <?=$film->lang?></li>
-                    <li>Vote: <?=$film->vote?></li>
-                    <li>Genre: <?=$film->genre->name?></li>
+                    <li>Title: <strong><?=$movie->title?></strong></li>
+                    <li>Language: <?=$movie->lang?></li>
+                    <li>Vote: <?=$movie->vote?></li>
+                    <li>Genre: <?=$movie->genre->name?></li>
+                    <li>Duration: <?=$movie->duration?> min</li>
+                    <li>Profits: <?=$movie->profits?> million $</li>
                     <li>
-                        <small>Note: <?=$film->getYear()?></small>
+                        <small>Note: <?=$movie->getYear()?></small>
                     </li>
                 </ul>
                 <hr>
             <?php endforeach?>
+
+            <h3>TV-Shows</h3>
+            <?php foreach ($tvSeries as $key => $show) :?>
+                <ul>
+                    <li>Title: <strong><?=$show->title?></strong></li>
+                    <li>Language: <?=$show->lang?></li>
+                    <li>Vote: <?=$show->vote?></li>
+                    <li>Genre: <?=$show->genre->name?></li>
+                    <li>N° of seasons: <?=$show->seasonNumb?></li>
+                    <li>
+                        <small>Note: <?=$show->getYear()?></small>
+                    </li>
+                </ul>
+                <hr>
+            <?php endforeach?>
+
     </body>
 </html>
