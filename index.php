@@ -2,10 +2,14 @@
 
 require_once __DIR__.'/models/Production.php';
 require_once __DIR__.'/models/Genre.php';
+include_once __DIR__.'/models/Movie.php';
+include_once __DIR__.'/models/TvSerie.php';
+
 
 include_once __DIR__.'/db.php';
-
-
+$movie=new Movie(100,120);
+//$tv=new TvSerie(5);
+var_dump($movie);
 $parasite->setYear(2019);
 $gladiator->setYear(2000);
 $itaJeegRobot->setYear(2015);
